@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import SignIn from "./pages/auth/SiginIn";
+import DashBoard from "./pages/admin/DashBoard";
+
+import { Box } from "@chakra-ui/react";
+import { useSelector } from "react-redux";
+import ProtectedRoute from "./pages/auth/ProtectedRoute";
 
 function App() {
+  const {loggedIn} = useSelector((state)=>state.auth);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Routes>
+<Route path="/login" element={<ProtectedRoute isAuthenticated={!loggedIn} redirect={'/admin'}><SignIn/></ProtectedRoute>}/>
+<Route path="/admin" element={<ProtectedRoute isAuthenticated={loggedIn} redirect={'/login'}><DashBoard/></ProtectedRoute>}/>
+      </Routes>
     </div>
   );
 }
