@@ -53,7 +53,9 @@ function AuthIllustration({children}) {
         <Box
           display={{ base: "none", md: "block" }}
           h='100%'
+          bgImage={'https://images.pexels.com/photos/16108218/pexels-photo-16108218/free-photo-of-food-healthy-sea-black-and-white.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'}
           minH='100vh'
+           bgSize={'contain'}
           w={{ lg: "50vw", "2xl": "44vw" }}
           position='absolute'
           right='0px'>

@@ -40,12 +40,12 @@ function SignIn() {
     event.preventDefault();
     setButtonText("Sigining In");
     dispatch({type: 'login'});
-    navigate('/admin');
+    navigate('/');
     setButtonText("Sign in");
 
   };
   return (
-    <AuthIllustration illustrationBackground={'https://img.freepik.com/free-vector/stay-home-abstract-concept-vector-illustration-forced-isolation-covid19-outbreak-prevention-measures-social-distance-governmental-support-self-protection-wear-mask-abstract-metaphor_335657-6164.jpg?size=626&ext=jpg&ga=GA1.1.160864721.1688200114&semt=sph'}>
+    <AuthIllustration illustrationBackground={'https://images.pexels.com/photos/16108218/pexels-photo-16108218/free-photo-of-food-healthy-sea-black-and-white.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'}>
       <Flex
         maxW={{ base: "100%", md: "max-content" }}
         w='100%'

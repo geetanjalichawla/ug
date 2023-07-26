@@ -341,7 +341,7 @@ import { Text } from "@chakra-ui/react";
   
   
   const navBar = [
-    {title : "Dashboard" , pathname :"/admin" , icon :<BsGridFill/> ,  },
+    {title : "Dashboard" , pathname :"/" , icon :<BsGridFill/> ,  },
     {title : "Orders" , pathname :"/Orders" , icon:<MdSoupKitchen/>},
   
   ];

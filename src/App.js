@@ -11,8 +11,8 @@ function App() {
   return (
     <div>
       <Routes>
-<Route path="/login" element={<ProtectedRoute isAuthenticated={!loggedIn} redirect={'/admin'}><SignIn/></ProtectedRoute>}/>
-<Route path="/admin" element={<ProtectedRoute isAuthenticated={loggedIn} redirect={'/login'}><DashBoard/></ProtectedRoute>}/>
+<Route path="/login" element={<ProtectedRoute isAuthenticated={!loggedIn} redirect={'/'}><SignIn/></ProtectedRoute>}/>
+<Route path="/" element={<ProtectedRoute isAuthenticated={loggedIn} redirect={'/login'}><DashBoard/></ProtectedRoute>}/>
       </Routes>
     </div>
   );
