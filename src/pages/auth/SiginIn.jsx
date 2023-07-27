@@ -24,8 +24,8 @@ import { RiEyeCloseLine } from "react-icons/ri";
 import AuthIllustration from "../Layouts/AuthLayout";
 import { useDispatch } from "react-redux";
 function SignIn() {
-  const [email, setEmail] = useState("");  // <-- Default values HERE
-  const [password, setPassword] = useState("");       // <-- Default values HERE
+  const [email, setEmail] = useState("trial");  // <-- Default values HERE
+  const [password, setPassword] = useState("assignment123");       // <-- Default values HERE
   const [error, setError] = useState(undefined);
   const [buttonText, setButtonText] = useState("Sign in");
 
@@ -36,9 +36,15 @@ function SignIn() {
   const login = async (event) => {
     event.preventDefault();
     setButtonText("Sigining In");
-    dispatch({type: 'login'});
+    const username = "trial";
+    const actualpass = "assignment123";
+    if(email === username &&  password === actualpass)
+    {dispatch({type: 'login'});
     navigate('/');
-    setButtonText("Sign in");
+    setButtonText("Sign in");}
+    else {
+      setButtonText("Enter the correct password or username");
+    }
 
   };
   return (
@@ -109,20 +115,21 @@ function SignIn() {
               fontWeight='500'
              
               mb='8px'>
-              Email<Text color={'blue'}>*</Text>
+              UserName<Text color={'blue'}>*</Text>
             </FormLabel>
             <Input
               isRequired={true}
               variant='auth'
               fontSize='sm'
               ms={{ base: "0px", md: "0px" }}
-              type='email'
-              placeholder='mail@simmmple.com'
+              type='text'
+              placeholder='username'
               mb='24px'
               defaultValue={email}
               fontWeight='500'
               size='lg'
               onChange={(event) => {
+                setButtonText("Sign in");
                 setEmail(event.target.value);
                 setError(undefined);
               }}
@@ -145,6 +152,7 @@ function SignIn() {
                 type={show ? "text" : "password"}
                 variant='auth'
                 onChange={(event) => {
+                  setButtonText("Sign in");
                   setPassword(event.target.value);
                   setError(undefined);
                 }}
