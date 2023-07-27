@@ -1,20 +1,23 @@
-// utils/excelExport.js
-import XLSX from "xlsx";
+import { utils, write, writeFile } from 'xlsx'; // Import required SheetJS utilities
+import { saveAs } from 'file-saver'; // Import the saveAs function from FileSaver.js
 
 export const exportToExcel = (data, fileName) => {
-  const workbook = XLSX.utils.book_new();
+  const excelData = Object.entries(data).map(([sheetName, sheetData]) => ({
+    sheetName,
+    data: sheetData,
+  }));
 
-  for (const sheetName in data) {
-    const sheetData = data[sheetName];
-    const worksheet = XLSX.utils.aoa_to_sheet(sheetData);
-    XLSX.utils.book_append_sheet(workbook, worksheet, sheetName);
-  }
+  const fileType =
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
+  const fileExtension = '.xlsx';
 
-  const excelBuffer = XLSX.write(workbook, { type: "array", bookType: "xlsx" });
-  const excelBlob = new Blob([excelBuffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+  const workbook = utils.book_new();
+  excelData.forEach(({ sheetName, data }) => {
+    const worksheet = utils.aoa_to_sheet(data);
+    utils.book_append_sheet(workbook, worksheet, sheetName);
+  });
 
-  const downloadLink = document.createElement("a");
-  downloadLink.href = URL.createObjectURL(excelBlob);
-  downloadLink.download = `${fileName}.xlsx`;
-  downloadLink.click();
+  const excelBuffer = write(workbook, { type: 'array', bookType: 'xlsx' });
+  const sheetData = new Blob([excelBuffer], { type: fileType });
+  saveAs(sheetData, `${fileName}${fileExtension}`);
 };

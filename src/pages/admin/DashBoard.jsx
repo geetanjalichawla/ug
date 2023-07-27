@@ -9,7 +9,7 @@ import CoustermsByDevices from './Components/CoustermsByDevices'
 import ProgressBar from './Components/Comments'
 import BasicAuthExample from './Components/CheckingCOmponent'
 import { useSelector } from 'react-redux'
-// import ExcelDownloadButton from './Components/ExcelDownloadButton'
+import ExcelDownloadButton from './Components/ExcelDownloadButton'
 
 function DashBoard() {
   const {data} = useSelector(state=>state.auth);
@@ -19,9 +19,9 @@ function DashBoard() {
       {/* <BasicAuthExample/> */}
       <GridItem colSpan={'11'} bgColor={'white'} rounded={'2xl'} p={[2,4]} w="full">
 <VStack gap={[4,8]} w="full">
-  <HStack>
+  <HStack justifyContent={'space-between'} w="full">
     <Heading>DashBoard </Heading>
-    {/* <ExcelDownloadButton/> */}
+    <ExcelDownloadButton/>
   </HStack>
 <Cards/>
 <Box  w="100%">

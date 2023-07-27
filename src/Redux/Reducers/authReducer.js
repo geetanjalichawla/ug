@@ -2,7 +2,8 @@ import { createReducer } from "@reduxjs/toolkit";
 const defautState =   {
   loggedIn:false,
   user: "",
-  data:{   comments: {
+  data:{ 
+      comments: {
     negative: 34,
     neutral: 12,
     positive: 134,

@@ -18,7 +18,7 @@ function Cards() {
         const encodedCredentials = btoa(basicAuthString);
 
         const response = await axios.post(
-          "http://ec2-54-89-22-72.compute-1.amazonaws.com:8000/sample_assignment_api_1",
+          "http://ec2-35-175-217-18.compute-1.amazonaws.com:8000/sample_assignment_api_1/",
           { auth: encodedCredentials },
           {
             headers: {
