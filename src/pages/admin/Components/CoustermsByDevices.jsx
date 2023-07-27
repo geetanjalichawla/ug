@@ -37,7 +37,7 @@ const CoustermsByDevices = () => {
       };
   
       fetchCommentsData();
-    }, []);
+    }, [dispatch]);
   
     if (error) {
       return <div>Error: {error}</div>;

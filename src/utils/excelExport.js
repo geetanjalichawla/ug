@@ -1,4 +1,4 @@
-import { utils, write, writeFile } from 'xlsx'; // Import required SheetJS utilities
+import { utils, write } from 'xlsx'; // Import required SheetJS utilities
 import { saveAs } from 'file-saver'; // Import the saveAs function from FileSaver.js
 
 export const exportToExcel = (data, fileName) => {

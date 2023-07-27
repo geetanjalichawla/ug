@@ -6,7 +6,6 @@ import { Link, useNavigate } from "react-router-dom";
 import {
   Box,
   Button,
-  Checkbox,
   Flex,
   FormControl,
   FormLabel,
@@ -16,12 +15,10 @@ import {
   InputGroup,
   InputRightElement,
   Text,
-  useColorModeValue,
 } from "@chakra-ui/react";
 // Custom components
 // Assets
 // import illustration from "assets/img/auth/auth.png";
-import { FcGoogle } from "react-icons/fc";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { RiEyeCloseLine } from "react-icons/ri";
 import AuthIllustration from "../Layouts/AuthLayout";
@@ -170,7 +167,7 @@ function SignIn() {
               mb='24px'
               type= "submit"
              >
-              Sign In
+              {buttonText}
             </Button>
           </FormControl>
           <Flex

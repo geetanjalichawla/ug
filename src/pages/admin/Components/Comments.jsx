@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Box, Flex, HStack, Text } from "@chakra-ui/react";
+import { Box, HStack, Text } from "@chakra-ui/react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 
@@ -34,7 +34,7 @@ const dispatch =useDispatch();
     };
 
     fetchCommentsData();
-  }, []);
+  }, [dispatch]);
 
   if (error) {
     return <div>Error: {error}</div>;

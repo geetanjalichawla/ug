@@ -7,7 +7,6 @@ import DevelopmentTable from './Components/ProductsTable'
 import Performance from './Components/Perfomance'
 import CoustermsByDevices from './Components/CoustermsByDevices'
 import ProgressBar from './Components/Comments'
-import BasicAuthExample from './Components/CheckingCOmponent'
 import { useSelector } from 'react-redux'
 import ExcelDownloadButton from './Components/ExcelDownloadButton'
 

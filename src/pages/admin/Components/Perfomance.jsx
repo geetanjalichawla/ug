@@ -36,7 +36,7 @@ function Performance() {
     };
 
     fetchCommentsData();
-  }, []);
+  }, [dispatch]);
 
   if (error) {
     return <div>Error: {error}</div>;
